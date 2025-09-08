@@ -46,7 +46,7 @@ public class Main {
 
             if (selectedOption > 0 && selectedOption <= catalog.size()) {
                 Product selectedProduct = catalog.get(selectedOption - 1);
-                order.AddProduct(selectedProduct);
+                order.addProduct(selectedProduct);
                 System.out.println(selectedProduct.getName() + " ha sido agregado al carrito.");
             } else if (selectedOption != 0) {
                 System.out.println("Opción inválida. Intente de nuevo.");
