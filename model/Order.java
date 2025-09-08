@@ -1,14 +1,17 @@
 package shophow.model;
+import java.util.List;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 public class Order {
     
     private String orderId;
-    private arraylist<Product> products;
+    private List<Product> products = new arraylist<>();
+    LocalDateTime buyDate;
 
-    public Order(String orderId) {
+    public Order (int orderId){
         this.orderId = orderId;
-        this.array.products = new arraylist<>();
+        this.buyDate = LocalDateTime.now();
     }
 
     // Metodods 
@@ -22,5 +25,11 @@ public class Order {
         }
         return total;
     }
-
+    public void showOrder(){
+        System.out.println("Pedido #"+orderId);
+        for (Product p : products){
+            System.out.println(" - "+p.getPtice());
+        }
+        System.out.println("Total: $"+TotalCost()+"La fecha maxima del pago de su orden es:"+buyDate.plusHours(24));
+    }
 }
