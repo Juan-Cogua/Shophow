@@ -1,12 +1,14 @@
 package shophow.model;
-import java.util.List;
-import java.util.ArrayList;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class Order {
     
-    private String orderId;
-    private List<Product> products = new arraylist<>();
+    private int orderId;
+    private List<Product> products = new Arraylist<>();
     LocalDateTime buyDate;
 
     public Order (int orderId){
@@ -26,10 +28,14 @@ public class Order {
         return total;
     }
     public void showOrder(){
-        System.out.println("Pedido #"+orderId);
-        for (Product p : products){
-            System.out.println(" - "+p.getPtice());
+        System.out.println("=== Resumen del Pedido ===");
+        System.out.println("Pedido #" + idOrder);
+
+        for (Product p : products) {
+            System.out.println(" - " + p.getPrice());
         }
-        System.out.println("Total: $"+TotalCost()+"La fecha maxima del pago de su orden es:"+buyDate.plusHours(24));
+        LocalDateTime maxPaymentDate = buyDate.plusHours(24);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy HH:mm", new Locale("es", "ES"))
+         System.out.println("Total: $" + TotalCost() + " La fecha maxima de pago de su orden es: " + maxPaymentDate.format(formatter));
     }
 }
